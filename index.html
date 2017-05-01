@@ -29,7 +29,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.State; }));
+  x.domain(data.map(function(d) { return d.Name; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
   z.domain(data.columns.slice(1));
 
@@ -62,7 +62,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 
   label.append("text")
       .attr("transform", function(d) { return (x(d.State) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
-      .text(function(d) { return d.State; });
+      .text(function(d) { return d.Name; });
 
   var yAxis = g.append("g")
       .attr("text-anchor", "middle");
