@@ -46,7 +46,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
           .outerRadius(function(d) { return y(d[1]); })
           .startAngle(function(d) { return x(d.data.Name); })
           .endAngle(function(d) { return x(d.data.Name) + x.bandwidth(); })
-          .padAngle(0.01)
+          .padAngle(0.03)
           .padRadius(innerRadius));
 
   var label = g.append("g")
@@ -61,7 +61,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("stroke", "#000");
 
   label.append("text")
-      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(5)translate(0,16)" : "rotate(-5)translate(0,-9)"; })
+      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(30)translate(0,16)" : "rotate(-30)translate(0,-9)"; })
       .text(function(d) { return d.Name; });
 
   var yAxis = g.append("g")
@@ -83,12 +83,12 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("fill", "none")
       .attr("stroke", "#fff")
       .attr("stroke-width", 5)
-      .text(y.tickFormat(5, "s"));
+      .text(y.tickFormat(2, "s"));
 
   yTick.append("text")
       .attr("y", function(d) { return -y(d); })
       .attr("dy", "0.35em")
-      .text(y.tickFormat(5, "s"));
+      .text(y.tickFormat(2, "s"));
 
   yAxis.append("text")
       .attr("y", function(d) { return -y(y.ticks(5).pop()); })
