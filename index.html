@@ -61,7 +61,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("stroke", "#000");
 
   label.append("text")
-      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(30)translate(0,16)" : "rotate(-30)translate(0,-9)"; })
+      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(-30)translate(0,16)" : "rotate(30)translate(0,-16)"; })
       .text(function(d) { return d.Name; });
 
   var yAxis = g.append("g")
@@ -69,7 +69,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 
   var yTick = yAxis
     .selectAll("g")
-    .data(y.ticks(1).slice(1))
+    .data(y.ticks(4).slice(1))
     .enter().append("g");
 
   yTick.append("circle")
@@ -91,7 +91,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .text(y.tickFormat(2, "s"));
 
   yAxis.append("text")
-      .attr("y", function(d) { return -y(y.ticks(5).pop()); })
+      .attr("y", function(d) { return -y(y.ticks(4).pop()); })
       .attr("dy", "-1em")
       .text("Expenses (£)");
 
