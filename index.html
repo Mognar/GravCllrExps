@@ -20,7 +20,7 @@ var y = d3.scaleRadial()
     .range([innerRadius, outerRadius]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#7b6888", "#6b486b", "#ff8c00"]);
+    .range(["#98abc5", "#ff8c00", "#7b6888"]);
 
 d3.csv("gravcllrexps.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -61,7 +61,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("stroke", "#000");
 
   label.append("text")
-      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(0)translate(0,16)" : "rotate(0)translate(0,-9)"; })
+      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(0)translate(0,16)" : "rotate(45)translate(0,-9)"; })
       .text(function(d) { return d.Name; });
 
   var yAxis = g.append("g")
@@ -79,7 +79,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 
   yTick.append("text")
       .attr("y", function(d) { return -y(d); })
-      .attr("dy", "0.35em")
+      .attr("dy", "0.25em")
       .attr("fill", "none")
       .attr("stroke", "#fff")
       .attr("stroke-width", 5)
@@ -93,7 +93,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
   yAxis.append("text")
       .attr("y", function(d) { return -y(y.ticks(5).pop()); })
       .attr("dy", "-1em")
-      .text("Population");
+      .text("Expenses (£)");
 
   var legend = g.append("g")
     .selectAll("g")
@@ -109,7 +109,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
   legend.append("text")
       .attr("x", 24)
       .attr("y", 9)
-      .attr("dy", "0.35em")
+      .attr("dy", "0.25em")
       .text(function(d) { return d; });
 });
 
