@@ -44,8 +44,8 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("d", d3.arc()
           .innerRadius(function(d) { return y(d[0]); })
           .outerRadius(function(d) { return y(d[1]); })
-          .startAngle(function(d) { return x(d.data.State); })
-          .endAngle(function(d) { return x(d.data.State) + x.bandwidth(); })
+          .startAngle(function(d) { return x(d.data.Name); })
+          .endAngle(function(d) { return x(d.data.Name) + x.bandwidth(); })
           .padAngle(0.01)
           .padRadius(innerRadius));
 
