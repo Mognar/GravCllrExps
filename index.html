@@ -29,7 +29,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 }, function(error, data) {
   if (error) throw error;
 
-  data.sort(function(a, b) { return b[data.columns[6]] -  a[data.columns[6]]; });
+  data.sort(function(a, b) { return b[data.columns[4]] -  a[data.columns[4]]; });
   x.domain(data.map(function(d) { return d.Name; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
   z.domain(data.columns.slice(1));
