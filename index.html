@@ -52,7 +52,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
           .startAngle(function(d) { return x(d.data.Name); })
           .endAngle(function(d) { return x(d.data.Name) + x.bandwidth(); })
           .padAngle(0.03)
-          .padRadius(innerRadius);
+          .padRadius(innerRadius));
     
   var label = g.append("g")
     .selectAll("g")
