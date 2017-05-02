@@ -35,7 +35,7 @@ var tip = d3.tip()
   .offset([-10, 0])
   .html(function(d) {
     return "<strong>Frequency:</strong> <span style='color:red'>" + d.total + "</span>";
-  })
+  });
 
 d3.csv("gravcllrexps.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
