@@ -20,7 +20,7 @@ var y = d3.scaleRadial()
     .range([innerRadius, outerRadius]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#ff8c00", "#7b6888"]);
+    .range(["#6b486b", "#a05d56", "#7b6888"]);
 
 d3.csv("gravcllrexps.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -79,7 +79,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 
   yTick.append("text")
       .attr("y", function(d) { return -y(d); })
-      .attr("dy", "0.25em")
+      .attr("dy", "0.35em")
       .attr("fill", "none")
       .attr("stroke", "#fff")
       .attr("stroke-width", 5)
@@ -109,7 +109,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
   legend.append("text")
       .attr("x", 24)
       .attr("y", 9)
-      .attr("dy", "0.25em")
+      .attr("dy", "0.35em")
       .text(function(d) { return d; });
 });
 
