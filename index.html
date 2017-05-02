@@ -61,7 +61,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       //.attr("stroke", "#000");
 
   label.append("text")
-      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(0)translate(0,16)" : "rotate(0)translate(0,-16)"; })
+      .attr("transform", function(d) { return (x(d.Name) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(0)translate(0,0)" : "rotate(0)translate(0,0)"; })
       .text(function(d) { return d.Name; });
 
   var yAxis = g.append("g")
