@@ -20,7 +20,7 @@ var y = d3.scaleRadial()
     .range([innerRadius, outerRadius]);
 
 var z = d3.scaleOrdinal()
-    .range(["#6b486b", "#a05d56", "#7b6888"]);
+    .range(["#98abc5", "#a05d56", "#7b6888"]);
 
 d3.csv("gravcllrexps.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -29,10 +29,11 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
 }, function(error, data) {
   if (error) throw error;
 
+  data.sort(function(a, b) { return b[data.columns[6]] -  a[data.columns[6]]; });
   x.domain(data.map(function(d) { return d.Name; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
   z.domain(data.columns.slice(1));
-
+ 
   g.append("g")
     .selectAll("g")
     .data(d3.stack().keys(data.columns.slice(1))(data))
