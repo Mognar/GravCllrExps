@@ -83,7 +83,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
       .attr("fill", "none")
       .attr("stroke", "#fff")
       .attr("stroke-width", 5)
-      .text(y.tickFormat(2, "s"));
+      .text(y.tickFormat(0.5, "s"));
 
   yTick.append("text")
       .attr("y", function(d) { return -y(d); })
