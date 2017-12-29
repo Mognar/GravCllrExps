@@ -57,6 +57,7 @@ d3.csv("gravcllrexps.csv", function(d, i, columns) {
   g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "rotate(90)")
       .call(d3.axisBottom(x));
 
   g.append("g")
